@@ -1,0 +1,19 @@
+<h1>Collections</h1>
+
+<p><%= link_to 'New collection', new_collection_path %></p>
+
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Fandom</th>
+  </tr>
+
+  <% @collections.each do |collection| %>
+    <tr>
+      <td><%= collection.title %></td>
+      <td><%= collection.fandom %></td>
+      <td><%= link_to 'Show', collection_path(collection) %></td>
+    </tr>
+  <% end %>
+</table>
