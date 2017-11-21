@@ -8,13 +8,17 @@ class CollectionsController < ApplicationController
 	end
 
 	def new
+		@collection = Collection.new
 	end
 
 	def create
 		@collection = Collection.new(collection_params)
 
-	  @collection.save
-	  redirect_to @collection
+	  if @collection.save
+      redirect_to @collection
+	  else
+      render 'new'
+	  end
 	end
 
 	private
