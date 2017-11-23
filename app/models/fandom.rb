@@ -1,0 +1,2 @@
+class Fandom < ApplicationRecord
+end

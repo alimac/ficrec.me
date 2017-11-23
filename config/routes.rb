@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
+  resources :fandoms
   resources :collections
 
   root 'welcome#index'

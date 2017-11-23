@@ -1,0 +1,16 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @fandom.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @fandom.category %>
+</p>
+
+<p>
+  <%= link_to 'Edit', edit_fandom_path(@fandom) %> |
+  <%= link_to 'Back', fandoms_path %>
+</p>
+
