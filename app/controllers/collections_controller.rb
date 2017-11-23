@@ -11,6 +11,10 @@ class CollectionsController < ApplicationController
 		@collection = Collection.new
 	end
 
+	def edit
+    @collection = Collection.find(params[:id])
+	end
+
 	def create
 		@collection = Collection.new(collection_params)
 
@@ -19,6 +23,23 @@ class CollectionsController < ApplicationController
 	  else
       render 'new'
 	  end
+	end
+
+	def update
+		@collection = Collection.find(params[:id])
+
+		if @collection.update(collection_params)
+			redirect_to @collection
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+	  @collection = Collection.find(params[:id])
+	  @collection.destroy
+
+	  redirect_to collections_path
 	end
 
 	private
