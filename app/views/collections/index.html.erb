@@ -10,9 +10,10 @@
   </tr>
 
   <% @collections.each do |collection| %>
+
     <tr>
       <td><%= collection.title %></td>
-      <td><%= collection.fandom %></td>
+      <td><% if collection.fandom %><%= link_to collection.fandom.name, fandom_path(collection.fandom) %><% end %></td>
       <td><%= link_to 'Show', collection_path(collection) %></td>
       <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
       <td><%= link_to 'Delete', collection_path(collection),

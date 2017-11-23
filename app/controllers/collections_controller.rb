@@ -44,6 +44,6 @@ class CollectionsController < ApplicationController
 
 	private
 		def collection_params
-			params.require(:collection).permit(:title, :fandom)
+			params.require(:collection).permit(:title, :fandom_id)
 		end
 end

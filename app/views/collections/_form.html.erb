@@ -21,7 +21,7 @@
 
   <p>
     <%= form.label :fandom %><br>
-    <%= form.text_area :fandom %>
+    <%= form.collection_select(:fandom_id, Fandom.all, :id, :name, include_blank: true) %>
   </p>
 
   <p>

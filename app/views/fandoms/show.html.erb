@@ -1,6 +1,6 @@
 
 <p>
-  <strong>Name:</strong>
+  <strong>Fandom name:</strong>
   <%= @fandom.name %>
 </p>
 
@@ -8,6 +8,11 @@
   <strong>Category:</strong>
   <%= @fandom.category %>
 </p>
+
+<h2>Collections</h2>
+<ol>
+  <%= render @fandom.collections %>
+</ol>
 
 <p>
   <%= link_to 'Edit', edit_fandom_path(@fandom) %> |
