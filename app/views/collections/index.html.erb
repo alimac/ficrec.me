@@ -2,7 +2,7 @@
 
 <p><%= link_to 'New collection', new_collection_path %></p>
 
-<% if @collections %>
+<% if @collections.count > 0 %>
 
   <table>
     <tr>

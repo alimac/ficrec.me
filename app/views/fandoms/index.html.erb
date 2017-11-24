@@ -2,7 +2,7 @@
 
 <p><%= link_to 'New fandom', new_fandom_path %></p>
 
-<% if @fandoms %>
+<% if @fandoms.count > 0 %>
 
   <table>
     <tr>
