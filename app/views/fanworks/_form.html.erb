@@ -1,0 +1,51 @@
+<%= form_with(model: @fanwork) do |form| %>
+
+  <% if @fanwork.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@fanwork.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @fanwork.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :fandom %><br>
+    <%= form.collection_select(:fandom_id, Fandom.all, :id, :name, {include_blank: "Select fandom"}) %>
+  </p>
+
+  <p>
+    <%= form.label :collection %><br>
+    <%= form.collection_select(:collection_ids, Collection.all, :id, :title, {}, {:multiple => true}) %>
+  </p>
+
+  <p>
+    <%= form.label :link %><br>
+    <%= form.url_field :link %>
+  </p>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment %>
+  </p>
+
+  <p>
+    <%= form.label :review %><br>
+    <%= form.text_area :review %>
+  </p>
+
+  <p>
+    <%= form.submit('Save Fanwork') %>
+  </p>
+
+<% end %>

@@ -1,13 +1,15 @@
 
-<p>
-  <strong>Title:</strong>
-  <%= @collection.title %>
-</p>
+<h1> <%= @collection.title %> </h1>
 
 <p>
   <strong>Fandom:</strong>
   <%= @collection.fandom.name %>
 </p>
+
+<h2>Fanworks</h2>
+<ol>
+  <%= render @collection.fanworks %>
+</ol>
 
 <p>
 	<%= link_to 'Edit', edit_collection_path(@collection) %> |

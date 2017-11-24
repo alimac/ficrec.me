@@ -1,0 +1,22 @@
+<h1> <%= @fanwork.title %> </h1>
+
+<p>
+  <strong>Fandom:</strong>
+  <%= @fanwork.fandom.name %>
+</p>
+
+<p>
+  <%= link_to @fanwork.title, @fanwork.link %>
+</p>
+
+<p>
+  <strong>Collection:</strong>
+  <% @fanwork.collections.each  do |collection| %>
+    <%= link_to collection.title, collection_path(collection) %>
+  <% end %>
+</p>
+
+<p>
+  <%= link_to 'Edit', edit_fanwork_path(@fanwork) %> |
+  <%= link_to 'Back', fanworks_path %>
+</p>

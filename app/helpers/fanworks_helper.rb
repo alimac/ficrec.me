@@ -1,0 +1,2 @@
+module FanworksHelper
+end

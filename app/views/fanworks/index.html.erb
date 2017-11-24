@@ -1,0 +1,30 @@
+<h1>Fanworks</h1>
+
+<p><%= link_to 'New fanwork', new_fanwork_path %></p>
+
+<% if @fanworks.count > 0 %>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Fandom</th>
+    </tr>
+
+    <% @fanworks.each do |fanwork| %>
+      <tr>
+        <td><%= fanwork.title %></td>
+        <td><%= fanwork.fandom.name %></td>
+        <td><%= link_to 'Show', fanwork_path(fanwork) %></td>
+        <td><%= link_to 'Edit', edit_fanwork_path(fanwork) %></td>
+        <td><%= link_to 'Delete', fanwork_path(fanwork),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<% else %>
+  <p> No fanworks yet.</p>
+<% end %>
+
+<p><%= link_to 'Back', root_path %></p>

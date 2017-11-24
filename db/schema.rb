@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123172636) do
+ActiveRecord::Schema.define(version: 20171124170750) do
 
   create_table "collections", force: :cascade do |t|
     t.string "title"
@@ -25,6 +25,26 @@ ActiveRecord::Schema.define(version: 20171123172636) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "fanworks", force: :cascade do |t|
+    t.string "title"
+    t.integer "fandom_id"
+    t.string "link"
+    t.text "comment"
+    t.text "review"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fandom_id"], name: "index_fanworks_on_fandom_id"
+  end
+
+  create_table "recs", force: :cascade do |t|
+    t.integer "fanwork_id"
+    t.integer "collection_id"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collection_id", "fanwork_id"], name: "index_recs_on_collection_id_and_fanwork_id"
   end
 
 end
