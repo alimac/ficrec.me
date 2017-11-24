@@ -1,18 +1,6 @@
 <%= form_with(model: @collection) do |form| %>
 
-  <% if @collection.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@collection.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @collection.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', errors: @collection.errors %>
 
   <p>
     <%= form.label :title %><br>

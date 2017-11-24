@@ -1,18 +1,6 @@
 <%= form_with(model: @fanwork) do |form| %>
 
-  <% if @fanwork.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@fanwork.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @fanwork.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', errors: @fanwork.errors %>
 
   <p>
     <%= form.label :fandom %><br>
