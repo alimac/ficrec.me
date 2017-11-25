@@ -45,6 +45,6 @@ class FanworksController < ApplicationController
 
   private
     def fanwork_params
-      params.require(:fanwork).permit(:title, :link, :fandom_id, collection_ids: [])
+      params.require(:fanwork).permit(:title, :link, :fandom_id, :review, :comment, collection_ids: [])
     end
 end
