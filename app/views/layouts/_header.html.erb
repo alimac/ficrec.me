@@ -3,8 +3,16 @@
   <li> <%= link_to 'Fanworks', controller: 'fanworks' %> </li>
   <li> <%= link_to 'Collections', controller: 'collections' %> </li>
   <li> <%= link_to 'Fandoms', controller: 'fandoms' %> </li>
+
+<% if logged_in? %>
+  <li> <%= link_to 'Profile', current_user %> </li>
+  <li> <%= link_to 'Log out', logout_path, method: :delete %> </li>
+
+<% else %>
   <li> <%= link_to 'Log in', login_path %> </li>
   <li> <%= link_to 'Sign up', new_user_path %> </li>
+<% end %>
+
 </ul>
 
 <% if flash[:danger] %>
