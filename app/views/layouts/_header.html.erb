@@ -3,5 +3,18 @@
   <li> <%= link_to 'Fanworks', controller: 'fanworks' %> </li>
   <li> <%= link_to 'Collections', controller: 'collections' %> </li>
   <li> <%= link_to 'Fandoms', controller: 'fandoms' %> </li>
+  <li> <%= link_to 'Log in', login_path %> </li>
   <li> <%= link_to 'Sign up', new_user_path %> </li>
 </ul>
+
+<% if flash[:danger] %>
+<p>
+  <%= flash[:danger] %>
+</p>
+<% end %>
+
+<% if flash[:success] %>
+<p>
+  <%= flash[:success] %>
+</p>
+<% end %>
