@@ -1,3 +1,5 @@
+<%= provide :title, @fanwork.title %>
+
 <h1> <%= @fanwork.title %> </h1>
 
 <p>
@@ -18,5 +20,5 @@
 
 <p>
   <%= link_to 'Edit', edit_fanwork_path(@fanwork) %> |
-  <%= link_to 'Back', fanworks_path %>
+  <%= link_to 'Back to Fanworks', fanworks_path %>
 </p>

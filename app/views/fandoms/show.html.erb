@@ -1,8 +1,6 @@
+<%= provide :title, @fandom.name %>
 
-<p>
-  <strong>Fandom name:</strong>
-  <%= @fandom.name %>
-</p>
+<h1><%= @fandom.name %></h1>
 
 <p>
   <strong>Category:</strong>
@@ -16,6 +14,6 @@
 
 <p>
   <%= link_to 'Edit', edit_fandom_path(@fandom) %> |
-  <%= link_to 'Back', fandoms_path %>
+  <%= link_to 'Back to Fandoms', fandoms_path %>
 </p>
 
