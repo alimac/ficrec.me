@@ -1,5 +1,6 @@
 class Fandom < ApplicationRecord
-    has_many :collections
+    validates :name, presence: true
 
+    has_many :collections
     has_many :fanworks
 end
