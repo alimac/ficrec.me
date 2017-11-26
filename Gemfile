@@ -54,6 +54,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
     # Create fake content
   gem 'faker'
+  gem 'awesome_print'
 end
 
 group :production do
