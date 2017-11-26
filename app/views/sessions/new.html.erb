@@ -1,4 +1,5 @@
 <% provide(:title, "Log in") %>
+
 <h1>Log in</h1>
 
 <%= form_for :session, url: login_path do |form| %>
@@ -11,6 +12,13 @@
 <p>
   <%= form.label :password %><br>
   <%= form.password_field :password %>
+</p>
+
+<p>
+  <%= form.label :remember_me do %>
+    <%= form.check_box :remember_me %>
+    <span> Remember me on this computer</span>
+  <% end %>
 </p>
 
 <p>
