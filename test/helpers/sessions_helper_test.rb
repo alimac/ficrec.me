@@ -3,7 +3,7 @@ require 'test_helper'
 class SessionsHelperTest < ActionView::TestCase
 
   def setup
-    @user = users(:alimac)
+    @user = users(:ciri)
     remember(@user)
   end
 
