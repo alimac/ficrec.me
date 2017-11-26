@@ -1,0 +1,9 @@
+<%= provide :title, "Edit Profile" %>
+<%= provide :button_text, "Save Profile" %>
+
+<h1>Update Your Profile</h1>
+
+<%= render 'form' %>
+
+<%= gravatar_for @user %>
+<a href="http://gravatar.com/emails" target="_blank" rel="noopener">Change Gravatar</a>
