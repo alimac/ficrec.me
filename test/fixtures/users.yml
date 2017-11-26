@@ -4,6 +4,7 @@ ciri:
   name: Cirilla Fiona Elen Riannon
   email: ciri@example.com
   password_digest: <%= User.digest('password') %>
+  admin: true
 
 yennefer:
   name: Yennefer of Vengerberg
