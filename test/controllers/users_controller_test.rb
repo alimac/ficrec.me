@@ -66,4 +66,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_url
   end
+
+  test "should redirect when user is not activated" do
+    @other_user.update_attribute(:activated, false)
+    get user_path(@other_user)
+    assert_redirected_to root_url
+  end
 end

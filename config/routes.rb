@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users
   resources :collections
   resources :fanworks
+  resources :account_activations, only: [:edit]
 
   root 'welcome#index'
 

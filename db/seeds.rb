@@ -21,7 +21,9 @@ user_count.times do |n|
                email: email,
                password: password,
                password_confirmation: password,
-               admin: admin)
+               admin: admin,
+               activated: true,
+               activated_at: Time.zone.now)
 end
 
 # Fandoms
