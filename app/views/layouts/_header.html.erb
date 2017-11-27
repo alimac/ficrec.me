@@ -15,14 +15,8 @@
 
 </ul>
 
-<% if flash[:danger] %>
-<p>
-  <%= flash[:danger] %>
-</p>
-<% end %>
-
-<% if flash[:success] %>
-<p>
-  <%= flash[:success] %>
+<% flash.each do |type, message| %>
+<p class="alert-<%= type %>">
+  <%= message %>
 </p>
 <% end %>
