@@ -3,6 +3,8 @@ require 'test_helper'
 class CollectionsControllerTest < ActionDispatch::IntegrationTest
 
   def setup
+    @user = users(:ciri)
+    @other_user = users(:yennefer)
     @collection = collections(:witcher_collection)
     @fandom = fandoms(:witcher)
   end
@@ -20,5 +22,11 @@ class CollectionsControllerTest < ActionDispatch::IntegrationTest
       delete collection_path(@collection)
     end
     assert_redirected_to login_url
+  end
+
+  test "should redirect edit when not collection owner" do
+    log_in_as(@other_user)
+    get edit_collection_path(@collection)
+    assert_redirected_to root_url
   end
 end
