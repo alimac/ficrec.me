@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171126214727) do
+ActiveRecord::Schema.define(version: 20171127034005) do
 
   create_table "collections", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "fandom_id"
+    t.integer "user_id"
     t.index ["fandom_id"], name: "index_collections_on_fandom_id"
+    t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
   create_table "fandoms", force: :cascade do |t|

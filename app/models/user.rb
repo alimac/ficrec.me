@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :collections, dependent: :destroy
+
   attr_accessor :remember_token, :activation_token
 
   before_save :downcase_email
@@ -54,6 +56,10 @@ class User < ApplicationRecord
   # Sends activation email.
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
+  end
+
+  def feed
+    collections
   end
 
   private

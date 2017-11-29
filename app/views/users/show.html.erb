@@ -5,6 +5,16 @@
   <%= @user.name %>
 </h1>
 
+<% if current_user?(@user) %>
 <p>
   <%= link_to 'Edit Profile', edit_user_path(@user) %>
 </p>
+<% end %>
+
+<% if @user.collections.any? %>
+<h3> <%= pluralize(@user.collections.count, "Collection") %> </h3>
+<ol>
+  <%= render @collections %>
+</ol>
+<%= will_paginate @collections %>
+<% end %>

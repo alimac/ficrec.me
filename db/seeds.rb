@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user_count = 100
-fandom_count = 20
+user_count = 35
+fandom_count = 10
 collection_count = 50
-fanwork_count = 300
+fanwork_count = 30
 
 # Users
 user_count.times do |n|
@@ -35,11 +35,10 @@ fandom_count.times do |n|
 end
 
 # Collections
+users = User.order(:created_at).take(5)
 collection_count.times do |n|
-  title  = Faker::Book.title
-  fandom = Fandom.all.sample
-  Collection.create!(title: title,
-                     fandom: fandom)
+  users.each { |user| user.collections.create!(title: Faker::Book.title,
+                                               fandom: Fandom.all.sample) }
 end
 
 # Fanworks

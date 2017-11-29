@@ -2,4 +2,19 @@
 
 <h1>ficrec.me</h1>
 
+
+<% if logged_in? %>
+
+  <section>
+    <%= render 'shared/user_info' %>
+  </section>
+
+  <section>
+    <%= render 'shared/feed' %>
+  </section>
+
+<% else %>
+
 <p>Rec me some fics!</p>
+
+<% end %>

@@ -1,9 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  fandom: MyString
+witcher_collection:
+  title: My favorite Witcher fics
+  fandom: witcher
+  user: ciri
 
-two:
-  title: MyString
-  fandom: MyString
+death_note_collection:
+  title: My favorite Death Note fics
+  fandom: death_note
+  user: ciri
+
+<% 30.times do |n| %>
+collection_<%= n %>:
+  title: My Collection Title <%= n %>
+  user: ciri
+<% end %>

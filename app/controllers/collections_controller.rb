@@ -1,4 +1,7 @@
 class CollectionsController < ApplicationController
+	before_action :logged_in_user, only: [:create, :destroy]
+	before_action :correct_user, only: :destroy
+
 	def index
     @collections = Collection.all
   end
@@ -16,11 +19,13 @@ class CollectionsController < ApplicationController
 	end
 
 	def create
-		@collection = Collection.new(collection_params)
+		@collection = current_user.collections.build(collection_params)
 
 	  if @collection.save
+			flash[:success] = "Collection created!"
       redirect_to @collection
 	  else
+			@feed_items = []
       render 'new'
 	  end
 	end
@@ -36,14 +41,18 @@ class CollectionsController < ApplicationController
 	end
 
 	def destroy
-	  @collection = Collection.find(params[:id])
 	  @collection.destroy
-
-	  redirect_to collections_path
+	  flash[:success] = "Collection deleted"
+	  redirect_to request.referrer || root_url
 	end
 
 	private
 		def collection_params
 			params.require(:collection).permit(:title, :fandom_id)
+		end
+
+		def correct_user
+			@collection = current_user.collections.find_by(id: params[:id])
+			redirect_to root_url if @collection.nil?
 		end
 end
