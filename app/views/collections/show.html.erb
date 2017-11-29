@@ -3,6 +3,11 @@
 <h1> <%= @collection.title %> </h1>
 
 <p>
+  <strong>Curated by </strong>
+  <%= link_to @collection.user.name, @collection.user %>
+</p>
+
+<p>
   <strong>Fandom:</strong>
   <%= @collection.fandom.name %>
 </p>
