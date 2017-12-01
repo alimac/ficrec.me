@@ -4,7 +4,6 @@ ciri:
   name: Cirilla Fiona Elen Riannon
   email: ciri@example.com
   password_digest: <%= User.digest('password') %>
-  admin: true
   activated: true
   activated_at: <%= Time.zone.now %>
 
@@ -28,6 +27,7 @@ tissaia:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
+  admin: true
 
 triss:
   name: Triss Merigold
