@@ -4,26 +4,10 @@
 
 <p><%= link_to 'New fandom', new_fandom_path %></p>
 
-<% if @fandoms.count > 0 %>
-
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Category</th>
-    </tr>
-
-    <% @fandoms.each do |fandom| %>
-      <tr>
-        <td><%= fandom.name %></td>
-        <td><%= fandom.category %></td>
-        <td><%= link_to 'Show', fandom_path(fandom) %></td>
-        <td><%= link_to 'Edit', edit_fandom_path(fandom) %></td>
-        <td><%= link_to 'Delete', fandom_path(fandom),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </table>
+<% if @fandoms.any? %>
+<ul>
+<%= render @fandoms %>
+</ul>
 
 <% else %>
   <p> No fandoms yet.</p>

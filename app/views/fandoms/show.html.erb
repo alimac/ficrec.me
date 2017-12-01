@@ -7,13 +7,19 @@
   <%= @fandom.category %>
 </p>
 
-<h2>Collections</h2>
+<p>
+  <%= link_to 'Back to Fandoms', fandoms_path %>
+
+<% if current_user && current_user.admin? %>
+  | <%= link_to 'Edit', edit_fandom_path(@fandom) %>
+  | <%= link_to 'Delete', fandom_path(@fandom),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+</p>
+
+<h2><%= pluralize(@fandom.collections.count, "Collection") %></h2>
 <ol>
   <%= render @fandom.collections %>
 </ol>
-
-<p>
-  <%= link_to 'Edit', edit_fandom_path(@fandom) %> |
-  <%= link_to 'Back to Fandoms', fandoms_path %>
-</p>
-
